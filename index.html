@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>性格診断</title>
+</head>
+<body>
+  <h1>性格診断</h1>
+
+  <form id="quizForm">
+    <label for="answer1">質問1: 誰かと一緒にいるより、一人でいるのが好きですか？ (はい/いいえ): </label>
+    <input type="text" id="answer1" name="answer1" required><br>
+
+    <label for="answer2">質問2: 複数人で何かをするとき、リーダー的役割は避けますか？ (はい/いいえ): </label>
+    <input type="text" id="answer2" name="answer2" required><br>
+
+    <label for="answer3">質問3: いろいろなことに興味があり、次に何をするか決めがたいですか？ (はい/いいえ): </label>
+    <input type="text" id="answer3" name="answer3" required><br>
+
+    <button type="button" onclick="performDiagnosis()">診断する</button>
+  </form>
+
+  <div id="resultContainer"></div>
+
+  <script>
+    function hantei(answer1, answer2, answer3) {
+      let result = "";
+
+      if (answer1 === 'はい') {
+        if (answer2 === 'はい') {
+          result = "あなたは猫派です！";
+        } else if (answer2 === 'いいえ') {
+          if (answer3 === 'はい') {
+            result = "あなたは猫派です！";
+          } else if (answer3 === 'いいえ') {
+            result = "あなたは犬派です！";
+          } else {
+            result = "全ての質問に回答してください。";
+          }
+        } else {
+          result = "全ての質問に回答してください。";
+        }
+      } else if (answer1 === 'いいえ') {
+        if (answer2 === 'いいえ') {
+          result = "あなたは犬派です！";
+        } else if (answer2 === 'はい') {
+          if (answer3 === 'いいえ') {
+            result = "あなたは犬派です！";
+          } else if (answer3 === 'はい') {
+            result = "あなたは猫派です！";
+          } else {
+            result = "全ての質問に回答してください。";
+          }
+        } else {
+          result = "全ての質問に回答してください。";
+        }
+      } else {
+        result = "全ての質問に回答してください。";
+      }
+
+      document.getElementById('resultContainer').innerHTML = "<p>" + result + "</p>";
+    }
+
+    function performDiagnosis() {
+      const answer1 = document.getElementById('answer1').value.trim();
+      const answer2 = document.getElementById('answer2').value.trim();
+      const answer3 = document.getElementById('answer3').value.trim();
+
+      if (answer1 && answer2 && answer3) {
+        hantei(answer1, answer2, answer3);
+      } else {
+        alert("全ての質問に回答してください。");
+      }
+    }
+  </script>
+</body>
+</html>
