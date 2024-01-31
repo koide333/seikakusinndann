@@ -5,7 +5,6 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function hantei(answer1, answer2, answer3) {
   if (answer1 === 'はい') {
     if (answer2 === 'はい') {
