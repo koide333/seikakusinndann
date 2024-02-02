@@ -4,24 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>性格診断</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/milligram@1.4.1/dist/milligram.min.css">
+  <style>
+    body {
+      margin-top: 30px;
+    }
+    #resultContainer {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <h1>性格診断</h1>
+  <div class="container">
+    <h1>性格診断</h1>
 
-  <form id="quizForm">
-    <label for="answer1">質問1: 誰かと一緒にいるより、一人でいるのが好きですか？ (はい/いいえ): </label>
-    <input type="text" id="answer1" name="answer1" required><br>
+    <form id="quizForm">
+      <label for="answer1">質問1: 誰かと一緒にいるより、一人でいるのが好きですか？ (はい/いいえ): </label>
+      <input type="text" id="answer1" name="answer1" class="input" required><br>
 
-    <label for="answer2">質問2: 複数人で何かをするとき、リーダー的役割は避けますか？ (はい/いいえ): </label>
-    <input type="text" id="answer2" name="answer2" required><br>
+      <label for="answer2">質問2: 複数人で何かをするとき、リーダー的役割は避けますか？ (はい/いいえ): </label>
+      <input type="text" id="answer2" name="answer2" class="input" required><br>
 
-    <label for="answer3">質問3: いろいろなことに興味があり、次に何をするか決めがたいですか？ (はい/いいえ): </label>
-    <input type="text" id="answer3" name="answer3" required><br>
+      <label for="answer3">質問3: いろいろなことに興味があり、次に何をするか決めがたいですか？ (はい/いいえ): </label>
+      <input type="text" id="answer3" name="answer3" class="input" required><br>
 
-    <button type="button" onclick="performDiagnosis()">診断する</button>
-  </form>
+      <button type="button" onclick="performDiagnosis()" class="button">診断する</button>
+    </form>
 
-  <div id="resultContainer"></div>
+    <div id="resultContainer"></div>
+  </div>
 
   <script>
     function hantei(answer1, answer2, answer3) {
